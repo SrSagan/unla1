@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1681152225 source:/home/santi/clase2/main.c
+	<stdlib.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdio.h>
+	<stdlib.h>
+
+1681151409 source:/home/santi/clase2/ejercicio4.c
+	<stdio.h>
+	<stdlib.h>
+

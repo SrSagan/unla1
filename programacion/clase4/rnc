@@ -1,0 +1,4 @@
+#!/bin/bash
+
+gcc clase4.c
+./a.out

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+gcc punto1.c -lm
+./a.out
