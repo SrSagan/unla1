@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1688664378 source:/home/santi/unla/programacion/clase26-6/test/main.c
+	<stdio.h>
+	<stdlib.h>
+
