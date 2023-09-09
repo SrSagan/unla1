@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1694221883 source:/home/santi/unla1/programacion/repaso/repaso/empleados.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"empleados.h"
+
+1694023049 source:/home/santi/unla1/programacion/repaso/repaso/main.c
+	<stdio.h>
+	<stdlib.h>
+	"menu.h"
+	"empleados.h"
+
+1694221613 source:/home/santi/unla1/programacion/repaso/repaso/menu.c
+	<stdio.h>
+	<stdlib.h>
+	"menu.h"
+	"empleados.h"
+
+1694023257 /home/santi/unla1/programacion/repaso/repaso/menu.h
+	"empleados.h"
+
+1694221916 /home/santi/unla1/programacion/repaso/repaso/empleados.h
+
