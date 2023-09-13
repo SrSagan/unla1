@@ -1,0 +1,6 @@
+telefe-8.9-generalista
+elTrece-8.1-generalista
+tecTV-2.3-cientifico
+deportv-5.6-deportivo
+pakapaka-3.3-infantil
+encuentro-2.6-cultural

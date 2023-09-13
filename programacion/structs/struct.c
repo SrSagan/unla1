@@ -139,8 +139,9 @@ void cargarArchivo(EstructuraPtr e[])
 EstructuraPtr cargarEstructura(char line[])
 {
     EstructuraPtr e = malloc(sizeof(struct Estructura));
-    //sscanf(line, "%[a-zA-Z];%d;%d\n", e->nombre, &(e->legajo), &(e->sueldo));
+    //sscanf(line, "%[a-zA-Z ];%d;%d\n", e->nombre, &(e->legajo), &(e->sueldo));
     //reemplazar con la estructura de varibles
+    e->vacio=0;
     return e;
 }
 

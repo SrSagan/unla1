@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1694438438 source:/home/santi/unla1/programacion/parcial/main.c
+	<stdio.h>
+	<stdlib.h>
+	"canales.h"
+
+1694438477 /home/santi/unla1/programacion/parcial/canales.h
+
+1694437929 source:/home/santi/unla1/programacion/parcial/canales.c
+	<stdio.h>
+	<stdlib.h>
+	"canales.h"
+
