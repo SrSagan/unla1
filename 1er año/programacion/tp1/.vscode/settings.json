@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "time.h": "c",
+        "mainmenu.h": "c",
+        "string.h": "c",
+        "stdlib.h": "c"
+    }
+}

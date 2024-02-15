@@ -1,0 +1,30 @@
+Cuantos departamentos hay en la unla;dos;uno;cuatro;tres
+Cual es el nombre completo de Belgrano;Manuel Belgrano;Manuel Del corazon de jesus Belgrano;Manuel Joaquin Belgrano;Manuel Jose Joaquin del Corazon de Jesus Belgrano
+Cual de estas lineas de procesadores de AMD es para la linea de servidores;Xeon;Threadripper;Ryzen;Epyc
+Capital de Francia;Londres;Madrid;Berlin;Paris
+Quien escribio Cien anos de soledad;Pablo Neruda;Mario Vargas Llosa;Isabel Allende;Gabriel Garcia Marquez
+Elemento quimico con simbolo H;Helio;Oxigeno;Carbono;Hidrogeno
+Pais donde se encuentra la Gran Muralla China;Japon;Corea del Sur;India;China
+Cual es el planeta mas grande del sistema solar;Marte;Venus;Saturno;Jupiter
+Animal que representa el signo zodiacal Leo;Tigre;Elefante;Canguro;Leon
+Nombre de la pintura mas famosa de Leonardo da Vinci;La ultima cena;La noche estrellada;Los girasoles;La Mona Lisa
+Pais donde se origino el sushi;China;Corea del Sur;Tailandia;Japon
+Quien fue el primer presidente de Estados Unidos;Thomas Jefferson;John Adams;Benjamin Franklin;George Washington
+Cual es el oceano mas grande del mundo;Oceano Atlantico;Oceano Indico;Oceano Artico;Oceano Pacifico
+Quien escribio Romeo y Julieta;Jane Austen;Charles Dickens;F Scott Fitzgerald;William Shakespeare
+Nombre de la montana mas alta del mundo;Monte Kilimanjaro;Monte McKinley;Monte Fuji;Monte Everest
+Quien pinto La noche estrellada;Pablo Picasso;Claude Monet;Salvador Dali;Vincent van Gogh
+Pais conocido como la Tierra de los Faraones;Grecia;Roma;Mexico;Egipto
+Cual es el rio mas largo del mundo;Rio Misisipi;Rio Yangtse;Rio Amazonas;Rio Nilo
+Nombre del quinto planeta del sistema solar;Marte;Venus;Saturno;Jupiter
+Quien fue el lider de la Revolucion Cubana;Che Guevara;Hugo Chavez;Evo Morales;Fidel Castro
+Quien escribio Don Quijote de la Mancha;Federico Garcia Lorca;Pablo Neruda;Gabriel Garcia Marquez;Miguel de Cervantes
+Instrumento musical conocido como Reina de los Instrumentos;Violin;Flauta;Organo;Piano
+Cual es el animal terrestre mas rapido del mundo;Chita;Leon;Puma;Guepardo
+En que pais se encuentra la ciudad de petra;Marruecos;Albania;Espana;Jordania
+Cuantos balones de oro tiene Lionel Messi;Cinco;Nueve;Diez;Siete
+En que se especializa la cartografia;Oceanos;Cartas;Zapatillas;Mapas
+Quien invento la lamparita;Einstein;Darwin;Newton;Edison
+Cual es la capital de Austria;Lisboa;Veinia;Roma;Viena
+Cuantas copas del mundo tiene Italia;Dos;Tres;Una;Cuatro
+Cual es la capital de Polonia;Malta;Ottawa;Persia;Varsovia

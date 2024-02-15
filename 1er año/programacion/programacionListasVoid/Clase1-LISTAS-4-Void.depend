@@ -1,0 +1,103 @@
+# depslib dependency file v1.0
+1644539572 source:c:\users\nico_\desktop\clase1-listas-4-void\lista.c
+	"lista.h"
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+
+1644539572 c:\users\nico_\desktop\clase1-listas-4-void\lista.h
+	<limits.h>
+	<stdbool.h>
+
+1644538902 source:c:\users\nico_\desktop\clase1-listas-4-void\main.c
+	"lista.h"
+	<stdio.h>
+	<stdlib.h>
+
+1651074894 source:c:\users\nperez\desktop\clase3-listas-5-void\lista.c
+	"lista.h"
+	<stdlib.h>
+	<string.h>
+
+1651074894 c:\users\nperez\desktop\clase3-listas-5-void\lista.h
+
+1651074313 source:c:\users\nperez\desktop\clase3-listas-5-void\main.c
+	"lista.h"
+	<stdio.h>
+	<stdlib.h>
+
+1651080013 source:c:\users\nperez\desktop\clase3-listas-5-void-sencillo\lista.c
+	"lista.h"
+	<stdlib.h>
+	<string.h>
+
+1651082614 c:\users\nperez\desktop\clase3-listas-5-void-sencillo\lista.h
+
+1644523046 source:c:\users\nperez\desktop\clase3-listas-5-void-sencillo\persona.c
+	"persona.h"
+	<stdio.h>
+	<stdlib.h>
+
+1644523046 c:\users\nperez\desktop\clase3-listas-5-void-sencillo\persona.h
+
+1651083429 source:c:\users\nperez\desktop\clase3-listas-5-void-sencillo\main.c
+	"lista.h"
+	"persona.h"
+	<stdio.h>
+	<stdlib.h>
+
+1651065612 source:c:\users\nico_\desktop\clase3-listas-5-void-sencillo-contda\lista.c
+	"lista.h"
+	<stdlib.h>
+	<string.h>
+
+1651068214 c:\users\nico_\desktop\clase3-listas-5-void-sencillo-contda\lista.h
+
+1644505046 source:c:\users\nico_\desktop\clase3-listas-5-void-sencillo-contda\persona.c
+	"persona.h"
+	<stdio.h>
+	<stdlib.h>
+
+1644505046 c:\users\nico_\desktop\clase3-listas-5-void-sencillo-contda\persona.h
+
+1651638556 source:c:\users\nico_\desktop\programacionlistasvoid\lista.c
+	"lista.h"
+	<stdlib.h>
+	<string.h>
+
+1651638646 c:\users\nico_\desktop\programacionlistasvoid\lista.h
+
+1693169468 source:c:\users\nico_\desktop\programacionlistasvoid\persona.c
+	"persona.h"
+	<stdio.h>
+	<stdlib.h>
+
+1693169468 c:\users\nico_\desktop\programacionlistasvoid\persona.h
+	"lista.h"
+
+1693169403 source:c:\users\nico_\desktop\programacionlistasvoid\main.c
+	"lista.h"
+	"persona.h"
+	<stdio.h>
+	<stdlib.h>
+
+1693169468 source:d:\unla1\programacion\programacionlistasvoid\persona.c
+	"persona.h"
+	<stdio.h>
+	<stdlib.h>
+
+1693169468 d:\unla1\programacion\programacionlistasvoid\persona.h
+	"lista.h"
+
+1651638646 d:\unla1\programacion\programacionlistasvoid\lista.h
+
+1693169783 source:d:\unla1\programacion\programacionlistasvoid\lista.c
+	"lista.h"
+	<stdlib.h>
+	<string.h>
+
+1700591464 source:d:\unla1\programacion\programacionlistasvoid\main.c
+	"lista.h"
+	<stdio.h>
+	<stdlib.h>
+

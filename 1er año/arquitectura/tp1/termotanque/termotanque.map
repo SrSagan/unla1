@@ -1,0 +1,62 @@
+MPLINK 4.31, Linker
+Linker Map File - Created Wed Oct 25 20:56:35 2023
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x0000ae
+                   .cinit    romdata   0x000057    program   0x000004
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000058      
+            89 out of 2183 program addresses used, program memory utilization is 4%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+            ABRIR_CANILLA   0x00002e    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+       ABRIR_CANILLA_LOOP   0x000030    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+               CHECK_TEMP   0x00001a    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+                   DELAY1   0x00003b    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+                 DELAY250   0x000049    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+                   INICIO   0x000009    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+            PRENDER_BOMBA   0x00000f    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+       PRENDER_BOMBA_LOOP   0x000011    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+              PRENDER_RES   0x000020    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+         PRENDER_RES_LOOP   0x000021    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+                     REG2   0x00003d    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+                     REG3   0x00003f    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+                     REG4   0x00004d    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+                     REG5   0x00004b    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+                    START   0x000041    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+                   START1   0x00004f    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   INICIO   0x000009    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+            PRENDER_BOMBA   0x00000f    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+       PRENDER_BOMBA_LOOP   0x000011    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+               CHECK_TEMP   0x00001a    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+              PRENDER_RES   0x000020    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+         PRENDER_RES_LOOP   0x000021    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+            ABRIR_CANILLA   0x00002e    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+       ABRIR_CANILLA_LOOP   0x000030    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+                   DELAY1   0x00003b    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+                     REG2   0x00003d    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+                     REG3   0x00003f    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+                    START   0x000041    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+                 DELAY250   0x000049    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+                     REG5   0x00004b    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+                     REG4   0x00004d    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+                   START1   0x00004f    program     static D:\unla1\arquitectura\tp1\termotanque\termotanque.asm
+
+

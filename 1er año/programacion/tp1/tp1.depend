@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1697915961 source:d:\unla1\programacion\tp1\game.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<math.h>
+	"game.h"
+	"players.h"
+
+1697676170 d:\unla1\programacion\tp1\game.h
+	"players.h"
+
+1697850904 source:d:\unla1\programacion\tp1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"mainmenu.h"
+
+1697847557 d:\unla1\programacion\tp1\mainmenu.h
+
+1697852360 source:d:\unla1\programacion\tp1\mainmenu.c
+	<stdio.h>
+	<stdlib.h>
+	"mainmenu.h"
+	"game.h"
+	"players.h"
+
+1697854790 source:d:\unla1\programacion\tp1\players.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"players.h"
+
+1697764101 d:\unla1\programacion\tp1\players.h
+

@@ -1,0 +1,48 @@
+<mxfile host="app.diagrams.net" modified="2023-10-25T18:26:36.606Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="ItfSCUhw5ixqLi8dsaMn" version="22.0.8" type="device">
+  <diagram name="Página-1" id="BXju7qUO-sRR-PkOTomy">
+    <mxGraphModel dx="989" dy="527" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ydG-jE4RC7rrfx4lgbSX-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ydG-jE4RC7rrfx4lgbSX-1" target="ydG-jE4RC7rrfx4lgbSX-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ydG-jE4RC7rrfx4lgbSX-1" value="INICIO" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ydG-jE4RC7rrfx4lgbSX-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ydG-jE4RC7rrfx4lgbSX-2" target="ydG-jE4RC7rrfx4lgbSX-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ydG-jE4RC7rrfx4lgbSX-2" value="Cambio a banco 01" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="110" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ydG-jE4RC7rrfx4lgbSX-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ydG-jE4RC7rrfx4lgbSX-3" target="ydG-jE4RC7rrfx4lgbSX-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ydG-jE4RC7rrfx4lgbSX-3" value="Setear pines RB0, RB1, RB2, RB3 como salida" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="200" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ydG-jE4RC7rrfx4lgbSX-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ydG-jE4RC7rrfx4lgbSX-7" target="ydG-jE4RC7rrfx4lgbSX-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ydG-jE4RC7rrfx4lgbSX-7" value="Cambio al banco 00" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="310" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ydG-jE4RC7rrfx4lgbSX-9" value="Llamo a ENCNEDER_TODOS" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="410" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ydG-jE4RC7rrfx4lgbSX-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="ydG-jE4RC7rrfx4lgbSX-15" target="ydG-jE4RC7rrfx4lgbSX-13">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="625.0000000000002" y="100" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ydG-jE4RC7rrfx4lgbSX-13" value="Set en alto los pines RB0, RB1, RB2, RB3" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="565" y="130" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ydG-jE4RC7rrfx4lgbSX-15" value="Subrutina&lt;br&gt;ENCENDER_TODOS" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="20" width="170" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,468 @@
+MPASM  5.31                   TERMOTANQUE.ASM   10-25-2023  20:56:35         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;------------------------------------------------------------------------------------;
+                      00002 ; Dal Degan Santiago - 45421137 
+                      00003 ; Ejercicio 1 - Termotanque
+                      00004 ; En este programa controla un termotanque utilizando el PIC16F628A
+                      00005 ;-----------------------------------------------------------------------------------;
+                      00006 
+                      00007 ; se configura el pic
+                      00008 #include <p16f628a.inc>
+                      00001         LIST
+                      00002 ; P16F628A.INC  Standard Header File, Version 1.10    Microchip Technology, Inc.
+                      00265         LIST
+                      00266 
+                      00009         LIST    P=16f628a
+                      00010 
+                      00011         org 0
+                      00012         
+                      00013 ; declaracion de variables
+                      00014 
+  0000002D            00015 tmax    equ d'45'
+  0000006E            00016 maxagua equ d'110'
+  00000032            00017 minagua equ d'50'
+  00000020            00018 tagua   equ 0x20
+  00000021            00019 cagua   equ 0x21
+  00000000            00020 bomba   equ 0
+  00000001            00021 bled    equ 1
+  00000002            00022 tled    equ 2
+  00000003            00023 resis   equ 3
+  00000004            00024 resled  equ 4
+  00000005            00025 maxled  equ 5
+  00000006            00026 canilla equ 6
+                      00027 ; 0x20-0x21 utilizado
+                      00028 
+                      00029 ;-----------SALIDAS-----------
+0000   1683           00030         bsf STATUS, 5
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0001   0186           00031         clrf TRISB ; Configuramos los pines B como salida
+0002   1283           00032         bcf STATUS, 5
+                      00033 ;-----------SALIDAS-----------
+                      00034 
+                      00035 ;-----------VARIABLES PRUEBA-----------
+0003   301E           00036         movlw d'30'
+0004   00A0           00037         movwf tagua
+0005   3064           00038         movlw d'100'
+0006   00A1           00039         movwf cagua
+0007   3000           00040         movlw 0x00
+0008   0086           00041         movwf PORTB ; Limpiamos las salias
+                      00042 ;-----------VARIABLES PRUEBA-----------
+                      00043 
+                      00044 ;-----------INICIO CICLO-----------
+0009                  00045 INICIO
+                      00046         
+0009   0064           00047         clrwdt ; Limpiamos el watchdog
+000A   306E           00048         movlw maxagua ; Movemos el nivel maximo de agua a w
+MPASM  5.31                   TERMOTANQUE.ASM   10-25-2023  20:56:35         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+000B   0221           00049         subwf cagua, 0 ; Restamos 110 - cantidad de agua
+                      00050         
+                      00051         ; if
+000C   1D03           00052         btfss STATUS, 2 ; Checkeamos si el bit de STATUS en la pos 2 es 0
+                      00053         
+                      00054         ; false
+000D   2???           00055         goto PRENDER_BOMBA ; si el bit es 0 (es decir no hay suficiente agua), prendemos la bomba
+                      00056         
+                      00057         ; true
+000E   2???           00058         goto CHECK_TEMP
+                      00059 ;-----------INICIO CICLO-----------
+                      00060 
+                      00061 ;-----------PRENDER BOMBA-----------
+000F                  00062 PRENDER_BOMBA
+000F   1406           00063         bsf PORTB, bomba ; Prendemos la bomba
+0010   1486           00064         bsf PORTB, bled ; Prendemos el led marcador de la bomba
+                      00065 
+0011                  00066 PRENDER_BOMBA_LOOP
+0011   0AA1           00067         incf cagua, 1 ; Simulamos el agua subiendo
+0012   306E           00068         movlw maxagua
+0013   0221           00069         subwf cagua, 0
+                      00070         
+                      00071         ; if
+0014   1D03           00072         btfss STATUS, 2 ; checkeamos nuevamente el nivel del agua
+                      00073         
+                      00074         ; false
+0015   2???           00075         goto PRENDER_BOMBA_LOOP ; Si sigue bajo repetimos el loop
+                      00076         
+                      00077         ; true
+0016   1006           00078         bcf PORTB, bomba ; Apagamos la bomba si el agua llego al nivel correcto
+0017   1086           00079         bcf PORTB, bled ; Apagamos el led de la bomba
+0018   1686           00080         bsf PORTB, maxled ; Prendemos el led de termotanque lleno
+0019   2???           00081         goto CHECK_TEMP
+                      00082 ;-----------PRENDER BOMBA-----------
+                      00083 
+                      00084 ;-----------CHECK TEMPERATURA-----------
+001A                  00085 CHECK_TEMP
+001A   302D           00086         movlw tmax
+001B   0220           00087         subwf tagua, 0
+                      00088         
+                      00089         ; if
+001C   1D03           00090         btfss STATUS, 2 ; Checkeamos si la temperatura del agua es la maxima
+                      00091         
+                      00092         ; false
+001D   2???           00093         goto PRENDER_RES ; Si no lo es prendemos la resistencia
+                      00094         
+                      00095         ; true
+001E   1506           00096         bsf PORTB, tled ; Prendemos el led de temperatuar alcanzada
+001F   2???           00097         goto ABRIR_CANILLA ; Si lo es abrimos la canilla
+                      00098 ;-----------CHECK TEMPERATURA-----------
+                      00099 
+                      00100 ;-----------PRENDER RESISTENCIA-----------
+0020                  00101 PRENDER_RES
+MPASM  5.31                   TERMOTANQUE.ASM   10-25-2023  20:56:35         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0020   1586           00102         bsf PORTB, resis
+                      00103 
+0021                  00104 PRENDER_RES_LOOP
+0021   0AA0           00105         incf tagua, 1 ; Simulamos el aumento de temperatura del agua    
+0022   302D           00106         movlw tmax
+0023   0220           00107         subwf tagua, 0
+                      00108 
+0024   2???           00109         call DELAY250 ; Hacemos titilar el led
+0025   1606           00110         bsf PORTB, resled
+0026   2???           00111         call DELAY250
+0027   1206           00112         bcf PORTB, resled
+                      00113         
+                      00114         ; if
+0028   1D03           00115         btfss STATUS, 2 ; Checkeamos la temperatura del agua
+                      00116         
+                      00117         ; false
+0029   2???           00118         goto PRENDER_RES_LOOP ; Si no se alcanzo la temperatura repetimos
+                      00119         
+                      00120         ; true
+                      00121         ; Si la temperatura fue alcanzada apagamos la resistencia y el led
+002A   1186           00122         bcf PORTB, resis
+002B   1206           00123         bcf PORTB, resled
+002C   1506           00124         bsf PORTB, tled ; Prendemos el led de temperatuar alcanzada
+002D   2???           00125         goto ABRIR_CANILLA
+                      00126 ;-----------PRENDER RESISTENCIA-----------
+                      00127 
+                      00128 ;-----------ABRIR CANILLA-----------
+002E                  00129 ABRIR_CANILLA
+002E   2???           00130         call DELAY1 ; Delay de 1 segundo antes de abrir la canilla
+                      00131         
+002F   1706           00132         bsf PORTB, canilla ; Abrimos la canilla
+                      00133 
+0030                  00134 ABRIR_CANILLA_LOOP
+0030   03A1           00135         decf cagua, 1
+0031   3032           00136         movlw minagua
+0032   0221           00137         subwf cagua, 0
+                      00138 
+0033   1D03           00139         btfss STATUS, 2 ; Checkeamos si el agua llego a los 50 litros
+                      00140         ;false
+0034   2???           00141         goto ABRIR_CANILLA_LOOP
+                      00142 
+                      00143         ;true
+0035   2???           00144         call DELAY1
+0036   2???           00145         call DELAY1
+0037   1306           00146         bcf PORTB, canilla
+0038   1106           00147         bcf PORTB, tled
+0039   1286           00148         bcf PORTB, maxled
+003A   2???           00149         goto INICIO
+                      00150 ;-----------ABRIR CANILLA-----------
+                      00151 
+                      00152 ;-----------DELAY 1s-----------
+003B                  00153 DELAY1
+                      00154         ; estamos andando a 4Mhz
+MPASM  5.31                   TERMOTANQUE.ASM   10-25-2023  20:56:35         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00155         ; un ciclo de instruccion son 4 ciclos de relojs es decir 4/4 = 1Mhz
+                      00156         ; para calcular el tiempo hacemos 1/1Mhz = 1us
+                      00157         ; si queremos lograr un delay de 1s necesitamos
+                      00158         ; 1M ciclos de maquina
+                      00159         ; sin embargo como toma 3 ciclos de maquina hacer el proceso
+                      00160         ; dividimos 1M/3 = 333.333,33...
+                      00161         ; ya que no entra eso en un registro lo separaremos en 3
+                      00162         ; por cada valor del un registro el otro registro contara
+                      00163         ; regresivamente su valor
+                      00164         ; es decir reg1=10 reg=20, por cada 10 ciclos restando reg1
+                      00165         ; se restara uno de reg2
+                      00166         ; para saber los valores necesitamos reg1*reg2*reg3 = 333.333
+                      00167         ; raiz cubica 333.333 = 69.3
+                      00168         
+003B   3045           00169         movlw d'69'
+003C   00A4           00170         movwf 0x24
+003D                  00171 REG2
+003D   3045           00172         movlw d'69'
+003E   00A5           00173         movwf 0x25
+003F                  00174 REG3
+003F   3046           00175         movlw d'70' ; ya que da un valor con coma a la 3ra le sumo uno
+0040   00A6           00176         movwf 0x26 ; no es un delay exacto asi que no deberia importar
+                      00177         
+0041                  00178 START
+0041   0BA6           00179         decfsz 0x26, 1
+0042   2???           00180         goto START
+0043   0BA5           00181         decfsz 0x25, 1
+0044   2???           00182         goto REG3
+0045   0BA4           00183         decfsz 0x24, 1
+0046   2???           00184         goto REG2
+0047   0064           00185         clrwdt
+0048   0008           00186         return
+                      00187 ;-----------DELAY 1s-----------
+                      00188 
+                      00189 ;-----------DELAY 250ms-----------
+0049                  00190 DELAY250
+                      00191         ; La logica es la misma pero para 250ms
+                      00192         
+0049   302B           00193         movlw d'43'
+004A   00A4           00194         movwf 0x24
+004B                  00195 REG5
+004B   302B           00196         movlw d'43'
+004C   00A5           00197         movwf 0x25
+004D                  00198 REG4
+004D   302C           00199         movlw d'44'
+004E   00A6           00200         movwf 0x26
+                      00201         
+004F                  00202 START1
+004F   0BA6           00203         decfsz 0x26, 1
+0050   2???           00204         goto START
+0051   0BA5           00205         decfsz 0x25, 1
+0052   2???           00206         goto REG5
+0053   0BA4           00207         decfsz 0x24, 1
+MPASM  5.31                   TERMOTANQUE.ASM   10-25-2023  20:56:35         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0054   2???           00208         goto REG4
+0055   0064           00209         clrwdt
+0056   0008           00210         return
+                      00211 ;-----------DELAY 500ms-----------
+                      00212         end
+MPASM  5.31                   TERMOTANQUE.ASM   10-25-2023  20:56:35         PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+ABRIR_CANILLA                     0000002E
+ABRIR_CANILLA_LOOP                00000030
+ADEN                              00000003
+BRGH                              00000002
+C                                 00000000
+C1INV                             00000004
+C1OUT                             00000006
+C2INV                             00000005
+C2OUT                             00000007
+CCP1CON                           00000017
+CCP1IE                            00000002
+CCP1IF                            00000002
+CCP1M0                            00000000
+CCP1M1                            00000001
+CCP1M2                            00000002
+CCP1M3                            00000003
+CCP1X                             00000005
+CCP1Y                             00000004
+CCPR1H                            00000016
+CCPR1L                            00000015
+CHECK_TEMP                        0000001A
+CIS                               00000003
+CM0                               00000000
+CM1                               00000001
+CM2                               00000002
+CMCON                             0000001F
+CMIE                              00000006
+CMIF                              00000006
+CREN                              00000004
+CSRC                              00000007
+DC                                00000001
+DELAY1                            0000003B
+DELAY250                          00000049
+EEADR                             0000009B
+EECON1                            0000009C
+EECON2                            0000009D
+EEDATA                            0000009A
+EEIE                              00000007
+EEIF                              00000007
+F                                 00000001
+FERR                              00000002
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INICIO                            00000009
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+NOT_BO                            00000000
+NOT_BOD                           00000000
+NOT_BOR                           00000000
+MPASM  5.31                   TERMOTANQUE.ASM   10-25-2023  20:56:35         PAGE  7
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+NOT_PD                            00000003
+NOT_POR                           00000001
+NOT_RBPU                          00000007
+NOT_T1SYNC                        00000002
+NOT_TO                            00000004
+OERR                              00000001
+OPTION_REG                        00000081
+OSCF                              00000003
+PCL                               00000002
+PCLATH                            0000000A
+PCON                              0000008E
+PEIE                              00000006
+PIE1                              0000008C
+PIR1                              0000000C
+PORTA                             00000005
+PORTB                             00000006
+PR2                               00000092
+PRENDER_BOMBA                     0000000F
+PRENDER_BOMBA_LOOP                00000011
+PRENDER_RES                       00000020
+PRENDER_RES_LOOP                  00000021
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RBIE                              00000003
+RBIF                              00000000
+RCIE                              00000005
+RCIF                              00000005
+RCREG                             0000001A
+RCSTA                             00000018
+RD                                00000000
+REG2                              0000003D
+REG3                              0000003F
+REG4                              0000004D
+REG5                              0000004B
+RP0                               00000005
+RP1                               00000006
+RX9                               00000006
+RX9D                              00000000
+SPBRG                             00000099
+SPEN                              00000007
+SREN                              00000005
+START                             00000041
+START1                            0000004F
+STATUS                            00000003
+SYNC                              00000004
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+T1CKPS0                           00000004
+T1CKPS1                           00000005
+MPASM  5.31                   TERMOTANQUE.ASM   10-25-2023  20:56:35         PAGE  8
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+T1CON                             00000010
+T1OSCEN                           00000003
+T2CKPS0                           00000000
+T2CKPS1                           00000001
+T2CON                             00000012
+TMR0                              00000001
+TMR1CS                            00000001
+TMR1H                             0000000F
+TMR1IE                            00000000
+TMR1IF                            00000000
+TMR1L                             0000000E
+TMR1ON                            00000000
+TMR2                              00000011
+TMR2IE                            00000001
+TMR2IF                            00000001
+TMR2ON                            00000002
+TOUTPS0                           00000003
+TOUTPS1                           00000004
+TOUTPS2                           00000005
+TOUTPS3                           00000006
+TRISA                             00000085
+TRISB                             00000086
+TRMT                              00000001
+TX9                               00000006
+TX9D                              00000000
+TXEN                              00000005
+TXIE                              00000004
+TXIF                              00000004
+TXREG                             00000019
+TXSTA                             00000098
+VR0                               00000000
+VR1                               00000001
+VR2                               00000002
+VR3                               00000003
+VRCON                             0000009F
+VREN                              00000007
+VROE                              00000006
+VRR                               00000005
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_BODEN_OFF                        00003FBF
+_BODEN_ON                         00003FFF
+_BOREN_OFF                        00003FBF
+_BOREN_ON                         00003FFF
+_CP_OFF                           00003FFF
+_CP_ON                            00001FFF
+_DATA_CP_OFF                      00003FFF
+_DATA_CP_ON                       00003EFF
+_ER_OSC_CLKOUT                    00003FFF
+_ER_OSC_NOCLKOUT                  00003FFE
+MPASM  5.31                   TERMOTANQUE.ASM   10-25-2023  20:56:35         PAGE  9
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_EXTCLK_OSC                       00003FEF
+_HS_OSC                           00003FEE
+_INTOSC_OSC_CLKOUT                00003FFD
+_INTOSC_OSC_NOCLKOUT              00003FFC
+_INTRC_OSC_CLKOUT                 00003FFD
+_INTRC_OSC_NOCLKOUT               00003FFC
+_LP_OSC                           00003FEC
+_LVP_OFF                          00003F7F
+_LVP_ON                           00003FFF
+_MCLRE_OFF                        00003FDF
+_MCLRE_ON                         00003FFF
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC_CLKOUT                    00003FFF
+_RC_OSC_NOCLKOUT                  00003FFE
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FED
+__16F628A                         00000001
+__DEBUG                           1
+bled                              00000001
+bomba                             00000000
+cagua                             00000021
+canilla                           00000006
+maxagua                           0000006E
+maxled                            00000005
+minagua                           00000032
+resis                             00000003
+resled                            00000004
+tagua                             00000020
+tled                              00000002
+tmax                              0000002D
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     1 reported,     0 suppressed
+
+
