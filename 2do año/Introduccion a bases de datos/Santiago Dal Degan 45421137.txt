@@ -1,0 +1,180 @@
+Nombre: Dal Degan Santiago
+DNI: 45.421.137
+
+Actividad 1:
+
+De ejemplo utilizare el TP de programacion, la funcion de guardado de jugadores:
+
+void guardarPuntuacion(PlayerStr e[], int tamJ)
+{
+    int size = getSize();
+    if(size == 0) size=tamJ;
+    else size=size+tamJ;
+
+    PlayerStr jugadores[size];
+    iniciarJugadores(jugadores, size);
+
+    cargarPuntuacion(jugadores);
+
+    int found=0;
+    for(int i=0;i<tamJ;i++)
+    {
+        //printf("jugador actual: %d\n", e[i]->dni);
+        found = 0;
+        for(int j=0;j<size;j++)
+        {
+            //printf("jugador actual archivo: %d\n", jugadores[j]->dni);
+            if(e[i]->dni == jugadores[j]->dni)
+            {
+                printf("Es igual\n");
+                found=1;
+            
+                if(e[i]->puntos > jugadores[j]->puntos)
+                {
+                    jugadores[j]->puntos = e[i]->puntos;
+                }
+                break;
+            }
+        }
+        if(!found)
+        {
+            for(int j=0;j<size;j++)
+            {
+                if(jugadores[j]->dni == 0)
+                {
+                    jugadores[j] = e[i];
+                    break;
+                }
+            }
+        }
+
+    }
+
+    //jugadores array completa
+    //los ordeno
+    for(int i=0;i<size-1;i++)
+    {
+        for(int j=i+1;j<size;j++)
+        {
+            if(getPuntos(jugadores[i]) < getPuntos(jugadores[j]))
+            {
+                int aux = getPuntos(jugadores[j]);
+                setPuntos(jugadores[j], getPuntos(jugadores[i]));
+                setPuntos(jugadores[i], aux);
+
+                aux = getDni(jugadores[j]);
+                setDni(jugadores[j], getDni(jugadores[i]));
+                setDni(jugadores[i], aux);
+
+            }
+        }
+    }
+
+    FILE * fp=fopen("jugadores.txt","w");
+
+    int first=1;
+    for(int i=0;i<size;i++)
+    {
+        if(jugadores[i]->dni!=0)
+        {
+            if(first!=1) fprintf(fp ,"\n");
+            fprintf(fp, "%d;%d", jugadores[i]->dni,jugadores[i]->puntos);
+            //reemplazar con la estructura de varibles
+            first=0;
+        }
+    }
+
+    /*for(int i=0;i<size;i++)
+    {
+        printf("DNI: %d\n", jugadores[i]->dni);
+    }
+    system("pause");*/ //debugging
+
+    fclose(fp);
+
+}
+
+No solo debo calcular el tamaño de jugadores ya guardados en el archivo, tambien tengo que ordenarlos por puntuacion y crear un formato de guardado prioritario
+que solo yo y alguien que estudie mi codigo puede entender. Tambien debo preocuparme por la consistencia de guardado de datos, la creacion del archivo, como va a ser leido
+entre muchos otros factores. Todo esto es debido a la necesidad de formatear todos los datos "manualmente".
+
+Actividad 2:
+
+Enunciado 1:
+
+	Entidad odontologo:
+		Apellido
+		Nombre
+		DNI (Clave candidata)
+		CUIL (Clave candidata)
+		Fecha de ingreso
+		Matricula (Clave primaria)
+		
+	Entidad direccion:
+		CUIL_persona (Clave primaria)
+		Calle
+		Numero
+		Localidad
+		Provincia
+	
+	Entidad paciente:
+		Apellido
+		Nombre
+		DNI (Clave candidata)
+		CUIL (Clave primaria)
+		
+	Entidad obra social:
+		CUIL (Clave primaria)
+		Numero afiliado
+		Nombre obra social
+	
+	Entidad turno:
+		ID_turno (Clave primaria)
+		CUIL_paciente
+		Matricula_odontologo
+		Fecha
+		Hora
+
+Enunciado 2:
+
+	Entidad cliente:
+		Apellido
+		Nombre
+		DNI (Clave primaria)
+	
+	Entidad direccion:
+		DNI_persona (Clave primaria)
+		Calle
+		Numero
+		Localidad
+		Provincia
+	
+	Entidad obra social:
+		DNI (Clave primaria)
+		Numero afiliado
+		Nombre obra social
+	
+	Entidad empleado:
+		Apellido
+		Nombre
+		DNI (Clave candidata)
+		CUIL (Clave primaria)
+	
+	Entidad producto:
+		ID (Clave primaria)
+		Tipo
+		Descripcion
+		Laboratorio_codigo
+		Precio
+	
+	Entidad laboratorio:
+		Codigo (Clave primaria)
+		Nombre
+	
+	Entidad venta:
+		Fecha
+		Numero_de_ticket (Clave primaria)
+		Precio_total
+		Forma_pago
+		Empleado_CUIL
+		ID_productos
