@@ -1,0 +1,61 @@
+Avion
+	marca_codigo
+	modelo
+	matricula (key)
+	fecha de entrada en servicio
+	
+Marca
+	Codigo (key)
+	Nombre
+	Pais de origen
+	
+Pilotos
+	DNI
+	CUIL (key)
+	fecha de ingreso
+
+Domiciolio
+	Calle
+	Numero
+	Localidad
+	DNI_persona (key)
+
+Localidad
+	Nombre
+	ID (key)
+	privincia
+	
+provincia
+	Nombre
+	ID (key)
+	
+Vuelo
+	codigo (key)
+	avion_matricula
+	piloto_CUIL
+	aeropuerto_origen_iata
+	aeropuerto_destino_iata
+	fecha_partida_ID
+	fecha_arribo_ID
+	distancia_recorrida
+	lista_pasajeros
+
+
+Persona
+	apellido
+	nombre
+	DNI (key)
+	
+Pasajero
+	DNI (key)
+	Viajero_frecente
+
+aeropuerto
+	IATA (key)
+	nombre
+	ciudad
+
+fecha
+	dia
+	hora
+	ID (key)
