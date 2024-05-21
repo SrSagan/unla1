@@ -219,7 +219,7 @@ void mostrarListaInt(ListaPtr lista){
 
     while (actual!=NULL){
 
-        numero = *(int*) getDato(actual);
+        numero = getDato(actual);
         printf("%d ", numero);
         actual = getSiguiente(actual);
     }
@@ -253,4 +253,144 @@ void liberarLista(ListaPtr lista) {
         actual = getSiguiente(actual);
         free(actual);
     };
+}
+
+/*
+
+void ordenarArrayInsercion(int *v, int tam)
+{
+    int aux;
+    for(int i=1;i<tam;i++)
+    {
+        aux = v[i];
+
+        int izq = i-1;
+
+        while((v[izq] > aux) && (izq >= 0))
+        {
+            v[izq+1] = v[izq];
+            izq--;
+        }
+        v[izq+1] = aux;
+    }
+}
+
+
+int busquedaSecuencial(int *v, int tam, int num)
+{
+    for(int i=0; i<tam; i++)
+    {
+        if(v[i] == num) return i;
+    }
+    return -1;
+}
+
+int busquedaBinaria(int *v, int tam, int num)
+{
+    int sup =0, inf=0, centro=0;
+
+    sup = tam-1;
+    while(inf <= sup)
+    {
+        centro = (sup+inf)/2; // [@] @ @ @ ->@<- @ @ @ (@) segunda vuelta: [@] ->@<- @ (@) | @ @ @ @ @
+
+        if(v[centro] == num) return centro;
+        else
+        {
+            if(num > v[centro]) inf = centro +1;// @ @ @ @ ->@<- [@] @ @ (@) //requiere que este ordenado!!
+            else sup = centro-1; // [@] @ @ (@) ->@<- @ @ @ @
+        }
+    }
+
+    return -1;
+}
+*/
+
+void ordenarListaBurbuja(ListaPtr lista, int(comparar)(datoPtr, datoPtr))
+{
+    NodoPtr a = lista->primero;
+    NodoPtr b = lista->primero;
+
+    datoPtr aux;
+    while(a != NULL){
+
+        b = a;
+        while(b != NULL){
+
+            //if(getDato(a) > getDato(b))
+            if(comparar(a, b))
+            {
+                aux = getDato(a);
+                setDato(a, getDato(b));
+                setDato(b, aux);
+            }
+            b = getSiguiente(b);
+
+        }
+
+        a = getSiguiente(a);
+    }
+
+}
+
+void ordenarListaSeleccion(ListaPtr lista, int(comparar)(datoPtr, datoPtr))
+{
+    NodoPtr a = lista->primero;
+    NodoPtr b = lista->primero;
+    datoPtr aux;
+    NodoPtr min = lista->primero;
+
+    while(a != NULL){
+
+        min = a;
+        while(b != NULL){
+
+            //if(getDato(a) > getDato(b))
+            if(comparar(min, b))
+            {
+                min = b;
+            }
+            b = getSiguiente(b);
+
+        }
+        aux = getDato(a);
+        setDato(a, getDato(min));
+        setDato(min, aux);
+
+        a = getSiguiente(a);
+    }
+}
+
+void ordenarListaInsercion(ListaPtr lista, int(comparar)(datoPtr, datoPtr))
+{
+    /*for(int i=1;i<tam;i++)
+    {
+        aux = v[i];
+
+        int izq = i-1;
+
+        while((v[izq] > aux) && (izq >= 0))
+        {
+            v[izq+1] = v[izq];
+            izq--;
+        }
+        v[izq+1] = aux;
+    }*/
+    NodoPtr aux;
+    NodoPtr a = getSiguiente(lista->primero);
+    NodoPtr izq = lista->primero;
+
+    while(a != NULL)
+    {
+        aux = a;
+
+        while(comparar(izq, aux))
+        {
+            setDato(getSiguiente(izq), getDato(izq));
+            izq = getSiguiente(aux);
+        }
+        setDato(getSiguiente(aux), getDato(izq));
+
+        a = getSiguiente(a);
+    }
 }

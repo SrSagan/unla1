@@ -24,8 +24,6 @@ datoPtr eliminarposicicon(ListaPtr lista, int posicion); //tarea
 
 int obtenerTamanio(ListaPtr lista); //tarea
 
-//void ordenarLista(ListaPtr lista);//tarea
-//ListaPtr ordenarListaCopia(ListaPtr lista);//tarea
 ListaPtr duplicarLista(ListaPtr lista);//tarea
 
 int buscarElementoInt(ListaPtr lista, datoPtr datoBuscado);//tarea
@@ -35,7 +33,12 @@ int buscarElementoInt(ListaPtr lista, datoPtr datoBuscado);//tarea
 
 void mostrarListaInt(ListaPtr lista);
 
+void mostrarListaGenerica(ListaPtr lista, void(*mostrar)(datoPtr));
+
 void liberarLista(ListaPtr lista);
 
+void ordenarListaBurbuja(ListaPtr lista, int(comparar)(datoPtr, datoPtr));//tarea
+void ordenarListaSeleccion(ListaPtr lista, int(comparar)(datoPtr, datoPtr));
+void ordenarListaInsercion(ListaPtr lista, int(comparar)(datoPtr, datoPtr));
 
 #endif // LISTA_H_INCLUDED

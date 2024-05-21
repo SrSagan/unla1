@@ -6,53 +6,49 @@
 int main()
 {
 
+    //------------------------------INT------------------------------//
+
     ListaPtr lista = crearLista();
 
-    mostrarLista(lista);
+    int n1=23, n2=11, n3=21, n4=34, n5=4;
 
-    insertarPrimero(lista, 23); //4
-    insertarPrimero(lista, 11); //3
-    insertarPrimero(lista, 21); //2
-    insertarPrimero(lista, 34); //1
-    insertarPrimero(lista, 4); //0
+    insertarPrimero(lista, &n1); //4
+    insertarPrimero(lista, &n2); //3
+    insertarPrimero(lista, &n3); //2
+    insertarPrimero(lista, &n4); //1
+    insertarPrimero(lista, &n5); //0
 
-    mostrarLista(lista);
+    mostrarListaInt(lista);
 
-    insertarUltimo(lista, 100); //tarea //5
+    insertarUltimo(lista, &n5); //tarea //5
 
-    insertarPosicion(lista, 150, 3); //tarea //nuevo 3
+    insertarPosicion(lista, &n1, 3); //tarea //nuevo 3
 
-    printf("Ultimo: %d\n\n", obtenerUltimo(lista));
+    mostrarListaInt(lista);
 
-    printf("3- %d\n\n", obtenerPosicicon(lista, 3));
+    printf("Ultimo: %d\n\n", (*(int*) obtenerUltimo(lista)));
 
-    mostrarLista(lista);
+    printf("3- %d\n\n", (*(int*) obtenerPosicicon(lista, 3)));
 
     eliminarUltimo(lista); //tarea
 
     eliminarposicicon(lista, 3); //tarea
 
-    mostrarLista(lista);
+    mostrarListaInt(lista);
 
     printf("Tamanio: %d\n\n", obtenerTamanio(lista)); //tarea
-
-    ordenarLista(lista);//tarea
-
-    printf("Lista ordenada: \n");
-
-    mostrarLista(lista);
 
     ListaPtr nL = duplicarLista(lista);//tarea
 
     printf("Lista duplicada: \n\n");
 
-    mostrarLista(nL);
+    mostrarListaInt(nL);
 
-    printf("La pos es: %d \n\n", buscarElemento(lista, 34));//tarea
+    printf("La pos es: %d \n\n", buscarElementoInt(lista, &n4));//tarea
 
-    insertarEnOrden(lista, 1);
+    mostrarListaInt(lista);
 
-    mostrarLista(lista);
+    //------------------------------INT------------------------------//
 
 
     return 0;
