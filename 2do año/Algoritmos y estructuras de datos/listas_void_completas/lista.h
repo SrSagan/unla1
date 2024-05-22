@@ -40,5 +40,7 @@ void liberarLista(ListaPtr lista);
 void ordenarListaBurbuja(ListaPtr lista, int(comparar)(datoPtr, datoPtr));//tarea
 void ordenarListaSeleccion(ListaPtr lista, int(comparar)(datoPtr, datoPtr));
 void ordenarListaInsercion(ListaPtr lista, int(comparar)(datoPtr, datoPtr));
+int busquedaSecuencial(ListaPtr lista, datoPtr datoBuscado);
+int busquedaBinaria(ListaPtr lista, datoPtr datoBuscado);
 
 #endif // LISTA_H_INCLUDED

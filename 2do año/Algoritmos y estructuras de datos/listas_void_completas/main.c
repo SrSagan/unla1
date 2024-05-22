@@ -22,9 +22,12 @@ int main()
     mostrarListaGenerica(lista, &mostrarPersonaDatoPtr);
 
 
-    ordenarListaInsercion(lista, compararPersonasDatoPtr);
+    ordenarListaBurbuja(lista, compararPersonasDatoPtr);
 
     mostrarListaGenerica(lista, &mostrarPersonaDatoPtr);
+
+    printf("%d\n", busquedaSecuencial(lista, maxi)); 
+    printf("%d\n", busquedaBinaria(lista, santi)); 
 
     //------------------------------INT------------------------------//
 

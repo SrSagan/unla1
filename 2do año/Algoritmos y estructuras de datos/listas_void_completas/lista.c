@@ -256,35 +256,6 @@ void liberarLista(ListaPtr lista) {
 }
 
 /*
-
-void ordenarArrayInsercion(int *v, int tam)
-{
-    int aux;
-    for(int i=1;i<tam;i++)
-    {
-        aux = v[i];
-
-        int izq = i-1;
-
-        while((v[izq] > aux) && (izq >= 0))
-        {
-            v[izq+1] = v[izq];
-            izq--;
-        }
-        v[izq+1] = aux;
-    }
-}
-
-
-int busquedaSecuencial(int *v, int tam, int num)
-{
-    for(int i=0; i<tam; i++)
-    {
-        if(v[i] == num) return i;
-    }
-    return -1;
-}
-
 int busquedaBinaria(int *v, int tam, int num)
 {
     int sup =0, inf=0, centro=0;
@@ -363,20 +334,7 @@ void ordenarListaSeleccion(ListaPtr lista, int(comparar)(datoPtr, datoPtr))
 
 void ordenarListaInsercion(ListaPtr lista, int(comparar)(datoPtr, datoPtr))
 {
-    /*for(int i=1;i<tam;i++)
-    {
-        aux = v[i];
-
-        int izq = i-1;
-
-        while((v[izq] > aux) && (izq >= 0))
-        {
-            v[izq+1] = v[izq];
-            izq--;
-        }
-        v[izq+1] = aux;
-    }*/
-    NodoPtr aux;
+    /*NodoPtr aux;
     NodoPtr a = getSiguiente(lista->primero);
     NodoPtr izq = lista->primero;
 
@@ -392,5 +350,51 @@ void ordenarListaInsercion(ListaPtr lista, int(comparar)(datoPtr, datoPtr))
         setDato(getSiguiente(aux), getDato(izq));
 
         a = getSiguiente(a);
+    }*/
+}
+
+int busquedaSecuencial(ListaPtr lista, datoPtr datoBuscado)
+{
+    NodoPtr a = lista->primero;
+    int counter=0;
+    datoPtr dato;
+
+
+    dato = getDato(a);
+    do
+    {
+        a = getSiguiente(a);
+        dato = getDato(a);
+        counter++;
+
+    }while(dato != datoBuscado && getSiguiente(a) != NULL);
+
+    if(a == NULL)
+    {
+        return -1; //no fue encontrado
     }
+
+    return counter;
+}
+
+int busquedaBinaria(ListaPtr lista, datoPtr datoBuscado)
+{
+    int sup =0, inf=0, centro=0;
+    int tam = obtenerTamanio(lista);
+
+    sup = tam-1;
+
+    while(inf <= sup)
+    {
+        centro = (sup+inf)/2; // [@] @ @ @ ->@<- @ @ @ (@) segunda vuelta: [@] ->@<- @ (@) | @ @ @ @ @
+
+        if(obtenerPosicicon(lista, centro) == datoBuscado) return centro;
+        else
+        {
+            if(datoBuscado > obtenerPosicicon(lista, centro)) inf = centro +1;// @ @ @ @ ->@<- [@] @ @ (@) //requiere que este ordenado!!
+            else sup = centro-1; // [@] @ @ (@) ->@<- @ @ @ @
+        }
+    }
+
+    return -1;
 }

@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "nodo.h": "c",
-        "random": "c"
+        "random": "c",
+        "ratio": "c"
     }
 }
