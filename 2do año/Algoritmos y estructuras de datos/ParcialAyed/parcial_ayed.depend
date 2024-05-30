@@ -1,0 +1,195 @@
+# depslib dependency file v1.0
+1692133862 source:c:\users\nperez\desktop\listas_int\lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+
+1584205420 source:c:\users\nperez\desktop\listas_int\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1692132787 source:c:\users\nperez\desktop\listas_int\nodo.c
+	<stdio.h>
+	<stdlib.h>
+	"nodo.h"
+
+1692132787 c:\users\nperez\desktop\listas_int\nodo.h
+
+1692133422 c:\users\nperez\desktop\listas_int\lista.h
+	"nodo.h"
+
+1714325196 source:c:\users\nico_\desktop\listas_int\main.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+
+1714325158 c:\users\nico_\desktop\listas_int\lista.h
+	"nodo.h"
+
+1714325158 c:\users\nico_\desktop\listas_int\nodo.h
+
+1714325158 source:c:\users\nico_\desktop\listas_int\nodo.c
+	<stdio.h>
+	<stdlib.h>
+	"nodo.h"
+
+1714325167 source:c:\users\nico_\desktop\listas_int\lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+
+1714933554 source:c:\users\nico_\desktop\finalmayo\listas_int\lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+
+1714933554 c:\users\nico_\desktop\finalmayo\listas_int\lista.h
+	"nodo.h"
+
+1714933554 c:\users\nico_\desktop\finalmayo\listas_int\nodo.h
+
+1714933554 source:c:\users\nico_\desktop\finalmayo\listas_int\main.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+
+1714933554 source:c:\users\nico_\desktop\finalmayo\listas_int\nodo.c
+	<stdio.h>
+	<stdlib.h>
+	"nodo.h"
+
+1714933933 source:c:\users\nico_\desktop\finalmayo\listas_int\estadio.c
+	<stdio.h>
+	<stdlib.h>
+	"estadio.h"
+
+1714933933 c:\users\nico_\desktop\finalmayo\listas_int\estadio.h
+
+1714934760 source:c:\users\nico_\desktop\finalmayo\listas_int\jugador.c
+	<stdio.h>
+	<stdlib.h>
+	"jugador.h"
+
+1714934760 c:\users\nico_\desktop\finalmayo\listas_int\jugador.h
+
+1716004740 source:c:\users\nico_\desktop\finalmayo\estadio.c
+	<stdio.h>
+	<stdlib.h>
+	"estadio.h"
+	<string.h>
+
+1716004706 c:\users\nico_\desktop\finalmayo\estadio.h
+	"lista.h"
+	"nodo.h"
+
+1716004706 source:c:\users\nico_\desktop\finalmayo\jugador.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"jugador.h"
+
+1716004706 c:\users\nico_\desktop\finalmayo\jugador.h
+
+1716004706 source:c:\users\nico_\desktop\finalmayo\lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+	"nodo.h"
+
+1716004706 c:\users\nico_\desktop\finalmayo\lista.h
+	"nodo.h"
+
+1714929956 c:\users\nico_\desktop\finalmayo\nodo.h
+
+1716005573 source:c:\users\nico_\desktop\finalmayo\main.c
+	<stdio.h>
+	<stdlib.h>
+	"estadio.h"
+	"jugador.h"
+
+1716004706 source:c:\users\nico_\desktop\finalmayo\nodo.c
+	<stdio.h>
+	<stdlib.h>
+	"nodo.h"
+
+1715014960 source:c:\users\administrador\desktop\finalmayo\finalmayo\jugador.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"jugador.h"
+	"nodo.h"
+
+1715015863 c:\users\administrador\desktop\finalmayo\finalmayo\jugador.h
+
+1715015722 source:c:\users\administrador\desktop\finalmayo\finalmayo\lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+	"nodo.h"
+
+1715012719 c:\users\administrador\desktop\finalmayo\finalmayo\lista.h
+	"nodo.h"
+
+1714929956 c:\users\administrador\desktop\finalmayo\finalmayo\nodo.h
+
+1715015803 source:c:\users\administrador\desktop\finalmayo\finalmayo\main.c
+	<stdio.h>
+	<stdlib.h>
+	"estadio.h"
+	"jugador.h"
+	"lista.h"
+	"nodo.h"
+
+1715013489 source:c:\users\administrador\desktop\finalmayo\finalmayo\nodo.c
+	<stdio.h>
+	<stdlib.h>
+	"nodo.h"
+
+1715014960 source:c:\users\administrador\desktop\finalmayo\finalmayo\estadio.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+	"nodo.h"
+	"estadio.h"
+	<string.h>
+	"jugador.h"
+
+1715015803 c:\users\administrador\desktop\finalmayo\finalmayo\estadio.h
+	"lista.h"
+	"nodo.h"
+
+1716748917 source:c:\users\nico_\desktop\parcialayed\estadio.c
+	<stdio.h>
+	<stdlib.h>
+	"estadio.h"
+	<string.h>
+
+1716748917 c:\users\nico_\desktop\parcialayed\estadio.h
+	"lista.h"
+	"nodo.h"
+
+1716749651 c:\users\nico_\desktop\parcialayed\lista.h
+	"nodo.h"
+
+1716748917 c:\users\nico_\desktop\parcialayed\nodo.h
+
+1716748917 source:c:\users\nico_\desktop\parcialayed\jugador.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"jugador.h"
+
+1716748917 c:\users\nico_\desktop\parcialayed\jugador.h
+
+1716749651 source:c:\users\nico_\desktop\parcialayed\lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+	"nodo.h"
+
+1716748917 source:c:\users\nico_\desktop\parcialayed\main.c
+	<stdio.h>
+	<stdlib.h>
+	"estadio.h"
+	"jugador.h"
+
