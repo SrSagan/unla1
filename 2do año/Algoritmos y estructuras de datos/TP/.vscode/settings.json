@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "materias.h": "c",
+        "alumnos.h": "c",
+        "lista.h": "c"
+    }
+}
