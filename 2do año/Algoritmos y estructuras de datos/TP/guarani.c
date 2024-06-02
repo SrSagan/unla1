@@ -14,6 +14,7 @@ struct Cursada
     char nombre[20];
     ListaPtr inscriptos;
     int cupos;
+    ColaPtr espera;
 };
 
 
@@ -24,6 +25,8 @@ CursadaPtr crearCursada(int legajo, char nombre[20], int cupos)
     c->legajo = legajo;
     strcpy(c->nombre, nombre);
     c->cupos = cupos;
+    c->inscriptos = crearLista();
+    c->espera = crearCola();
 
     return c;
 }
@@ -58,4 +61,22 @@ void setInscriptos(CursadaPtr c, ListaPtr i)
     c->inscriptos = i;
 }
 
-void inscribir(CursadaPtr c, AlumnoPtr a);
+int inscribir(CursadaPtr c, AlumnoPtr a)
+{
+    if(c->cupos > 0)
+    {
+        //si aun quedan cupos disponibles
+        insertarUltimo(c->inscriptos, a);
+        c->cupos--;
+        return 1; //se logro inscribirse
+    }
+    else
+    {
+        return 0; //se puso en la cola
+    }
+}
+
+void mostrarCursada(CursadaPtr c)
+{
+    
+}

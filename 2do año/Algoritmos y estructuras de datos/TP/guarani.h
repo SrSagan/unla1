@@ -29,6 +29,6 @@ void setNombreCursada(CursadaPtr c, char n[20]);
 ListaPtr getInscriptos(CursadaPtr c);
 void setInscriptos(CursadaPtr c, ListaPtr i);
 
-void inscribir(CursadaPtr c, AlumnoPtr a);
+int inscribir(CursadaPtr c, AlumnoPtr a);
 
 #endif // GUARANI_H_INCLUDED
