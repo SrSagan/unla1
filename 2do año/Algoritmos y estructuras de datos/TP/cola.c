@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include "cola.h"
 #include "nodo.h"
+#include "lista.h"
+#include "alumnos.h"
 
 struct Cola
 {
@@ -105,4 +107,63 @@ void liberarCola(ColaPtr Cola)
 
         desencolar(Cola);
     };
+}
+
+int tamCola(ColaPtr cola)
+{
+    ColaPtr colaAux = crearCola();
+    datoPtr dato;
+    int tam =0;
+    while (cola->primero != NULL)
+    {//eliminamos uno a uno y los vamos copiando a 2 nuevas colas
+        dato = desencolar(cola);
+        encolar(colaAux,dato);
+        tam++;
+    }
+
+    cola->ultimo = NULL;
+
+    while (colaAux->primero != NULL) //transformamos la cola auxiliar en la nuva cola real
+    {
+        dato = desencolar(colaAux);
+        encolar(cola,dato);
+    }
+    return tam;
+}
+
+void ordernarCola(ColaPtr cola)
+{
+    ListaPtr lista = crearLista();
+
+    while (cola->primero != NULL)
+    {
+        insertarPrimero(lista, desencolar(cola));
+    }
+
+    ordenarListaBurbuja(lista, compararPromedio);
+
+    encolarLista(lista, cola);
+
+    //liberarLista(lista);
+}
+
+void mostrarColaGenerica(ColaPtr cola, void (*mostrar)(datoPtr))
+{
+    ColaPtr colaAux = crearCola();
+    datoPtr dato;
+
+    while (cola->primero != NULL)
+    {//eliminamos uno a uno y los vamos copiando a 2 nuevas colas
+        dato = desencolar(cola);
+        mostrar(dato);
+    }
+
+    cola->ultimo = NULL;
+
+    while (colaAux->primero != NULL) //transformamos la cola auxiliar en la nuva cola real
+    {
+        dato = desencolar(colaAux);
+        encolar(cola,dato);
+    }
+
 }

@@ -21,5 +21,10 @@ datoPtr desencolar(ColaPtr Cola); ///DESENCOLAR - DEQUEUE
 ColaPtr duplicarCola(ColaPtr Cola);//tarea
 void liberarCola(ColaPtr Cola);
 
+int tamCola(ColaPtr cola);
+
+void ordernarCola(ColaPtr cola);
+void mostrarColaGenerica(ColaPtr cola, void (*mostrar)(datoPtr));
+
 
 #endif // LISTA_H_INCLUDED

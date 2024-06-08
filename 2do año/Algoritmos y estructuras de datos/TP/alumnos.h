@@ -23,6 +23,10 @@ void setMateriasAprobadas(AlumnoPtr a, ListaPtr ma);
 
 void agregarMateriaAprobada(AlumnoPtr a, MateriaPtr m);
 
-void calcularPromedio(AlumnoPtr a);
+float calcularPromedio(AlumnoPtr a);
+
+void mostrarAlumno(datoPtr b);
+
+int compararPromedio(datoPtr a1, datoPtr a2);
 
 #endif // ALUMNOS_H_INCLUDED

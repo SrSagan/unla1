@@ -31,4 +31,10 @@ void setInscriptos(CursadaPtr c, ListaPtr i);
 
 int inscribir(CursadaPtr c, AlumnoPtr a);
 
+void mostrarCursada(CursadaPtr c);
+void mostrarInscriptos(CursadaPtr c);
+
+void ponerEnCola(CursadaPtr c, AlumnoPtr a);
+void mostrarEspera(CursadaPtr c);
+
 #endif // GUARANI_H_INCLUDED

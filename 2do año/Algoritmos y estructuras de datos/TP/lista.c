@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "lista.h"
 #include "nodo.h"
+#include "cola.h"
 
 struct Lista{
 
@@ -160,6 +161,8 @@ int obtenerTamanio(ListaPtr lista)
 {
     NodoPtr a = lista->primero;
 
+    if(a == NULL) return 0;
+
     int counter = 1;
 
     while(getSiguiente(a) != NULL)
@@ -216,27 +219,8 @@ int buscarElementoInt(ListaPtr lista, datoPtr datoBuscado)
     return counter;
 }
 
-
-void mostrarListaInt(ListaPtr lista){
-
-    printf("\n<LISTA>\n");
-    NodoPtr actual = lista->primero;
-    int numero=0;
-
-    while (actual!=NULL){
-
-        numero = getDato(actual);
-        printf("%d ", numero);
-        actual = getSiguiente(actual);
-    }
-    printf("\n\n");
-
-};
-
-
 void mostrarListaGenerica(ListaPtr lista, void(*mostrar)(datoPtr)){
 
-    printf("\n<LISTA> TAM:%d \n", obtenerTamanio(lista));
     NodoPtr actual = lista->primero;
 
     while (actual!=NULL){
@@ -295,7 +279,7 @@ void ordenarListaBurbuja(ListaPtr lista, int(comparar)(datoPtr, datoPtr))
         while(b != NULL){
 
             //if(getDato(a) > getDato(b))
-            if(comparar(a, b))
+            if(comparar(getDato(a), getDato(b)))
             {
                 aux = getDato(a);
                 setDato(a, getDato(b));
@@ -336,27 +320,6 @@ void ordenarListaSeleccion(ListaPtr lista, int(comparar)(datoPtr, datoPtr))
 
         a = getSiguiente(a);
     }
-}
-
-void ordenarListaInsercion(ListaPtr lista, int(comparar)(datoPtr, datoPtr))
-{
-    /*NodoPtr aux;
-    NodoPtr a = getSiguiente(lista->primero);
-    NodoPtr izq = lista->primero;
-
-    while(a != NULL)
-    {
-        aux = a;
-
-        while(comparar(izq, aux))
-        {
-            setDato(getSiguiente(izq), getDato(izq));
-            izq = getSiguiente(aux);
-        }
-        setDato(getSiguiente(aux), getDato(izq));
-
-        a = getSiguiente(a);
-    }*/
 }
 
 int busquedaSecuencial(ListaPtr lista, datoPtr datoBuscado)
@@ -403,4 +366,31 @@ int busquedaBinaria(ListaPtr lista, datoPtr datoBuscado)
     }
 
     return -1;
+}
+
+float calcularPromedioListaGenerica(ListaPtr lista, float (getNumero(datoPtr)))
+{
+    NodoPtr actual = lista->primero;
+    float valor=0;
+    int divisor=0;
+
+    while(actual != NULL)
+    {
+        valor += getNumero(getDato(actual));
+        divisor++;
+        actual = getSiguiente(actual);
+    }
+
+    return valor/divisor;
+
+}
+
+void encolarLista(ListaPtr lista, ColaPtr cola)
+{
+    NodoPtr actual = lista->primero;
+    while(actual != NULL)
+    {
+        encolar(cola, getDato(actual));
+        actual = getSiguiente(actual);
+    }
 }

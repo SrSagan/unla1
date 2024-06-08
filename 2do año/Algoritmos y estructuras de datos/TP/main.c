@@ -4,11 +4,11 @@
 #include "guarani.h"
 
 /*
-Realizar un programa que simule las principales funciones del sistema Guarani. 
-El sistema debe tener una lista de materias, las materias una lista de inscriptos, y cada inscripto debe tener una lista de materias aprobadas con su promedio. 
+Realizar un programa que simule las principales funciones del sistema Guarani.
+El sistema debe tener una lista de materias, las materias una lista de inscriptos, y cada inscripto debe tener una lista de materias aprobadas con su promedio.
 
-Cada materia tiene un cupo, en caso de que se anoten más estudiantes que el cupo se debe generar una cola, 
-para generar la cola se evaluará como prioridad primero la cantidad de materias aprobadas y luego el promedio del estudiante. 
+Cada materia tiene un cupo, en caso de que se anoten más estudiantes que el cupo se debe generar una cola,
+para generar la cola se evaluará como prioridad primero la cantidad de materias aprobadas y luego el promedio del estudiante.
 */
 
 //notas:
@@ -30,7 +30,7 @@ Estructuras:
     Materias aprobadas:
     - Promedio
     - Nombre
-    
+
 Librerias:
     - Listas
     - Colas
@@ -41,6 +41,7 @@ Librerias:
 
 int main()
 {
+    printf("Nombre: Santiago Dal Degan - DNI: 45421137\n\n");
     ListaPtr guarani = crearLista(); //creamos una lista de cursadas
 
     CursadaPtr c1 = crearCursada(1, "Programacion", 100);
@@ -71,8 +72,20 @@ int main()
     inscribir(c2, a2);
 
     //nadie se inscribio a algoritmos
-    
 
+    mostrarCursada(c1);
+    mostrarCursada(c2);
+    mostrarCursada(c3);
+
+    mostrarInscriptos(c1);
+
+    inscribir(c3, a1);
+    inscribir(c3, a2);
+    inscribir(c3, a3);//inscribimos 3 alumnos a algoritmos
+    //a2 tiene un promedio mas alto que a3 y por lo tanto quedara primero
+
+    mostrarCursada(c3);
+    mostrarEspera(c3);
 
     return 0;
 }

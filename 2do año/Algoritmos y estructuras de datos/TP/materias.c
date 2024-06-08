@@ -42,3 +42,9 @@ void setPromedioMateria(MateriaPtr m, float p)
 {
     m->promedio = p;
 }
+
+float getPromedioMateriaDatoPtr(void * m)
+{
+    MateriaPtr a = (MateriaPtr)m;
+    return a->promedio;
+}

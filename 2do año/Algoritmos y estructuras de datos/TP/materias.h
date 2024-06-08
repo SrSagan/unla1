@@ -13,5 +13,7 @@ void setNombreMateria(MateriaPtr m, char n[20]);
 float getPromedioMateria(MateriaPtr m);
 void setPromedioMateria(MateriaPtr m, float p);
 
+float getPromedioMateriaDatoPtr(void * m);
+
 
 #endif // MATERIAS_H_INCLUDED

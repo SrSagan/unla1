@@ -2,6 +2,7 @@
 #define LISTA_H_INCLUDED
 
 #include "nodo.h"
+#include "cola.h"
 
 struct Lista;
 
@@ -31,8 +32,6 @@ int buscarElementoInt(ListaPtr lista, datoPtr datoBuscado);//tarea
 //void insertarEnOrden(ListaPtr lista, void dato);//tarea, si la lista est� ordenada cada vez que
 //se inserta se inserta en la posici�n que corresponda
 
-void mostrarListaInt(ListaPtr lista);
-
 void mostrarListaGenerica(ListaPtr lista, void(*mostrar)(datoPtr));
 
 void liberarLista(ListaPtr lista);
@@ -42,5 +41,9 @@ void ordenarListaSeleccion(ListaPtr lista, int(comparar)(datoPtr, datoPtr));
 void ordenarListaInsercion(ListaPtr lista, int(comparar)(datoPtr, datoPtr));
 int busquedaSecuencial(ListaPtr lista, datoPtr datoBuscado);
 int busquedaBinaria(ListaPtr lista, datoPtr datoBuscado);
+
+float calcularPromedioListaGenerica(ListaPtr lista, float (getNumero(datoPtr)));
+
+void encolarLista(ListaPtr lista, ColaPtr cola);
 
 #endif // LISTA_H_INCLUDED

@@ -72,11 +72,34 @@ int inscribir(CursadaPtr c, AlumnoPtr a)
     }
     else
     {
+        ponerEnCola(c, a);
         return 0; //se puso en la cola
+        
     }
 }
 
 void mostrarCursada(CursadaPtr c)
 {
-    
+    printf("%d- %s --------------------------------------\n", c->legajo, c->nombre);
+    printf("    Cupos restantes: %d\n", c->cupos);
+    printf("    Cantidad de inscriptos: %d\n", obtenerTamanio(c->inscriptos));
+    printf("    Cantidad de personas en espera: %d\n\n", tamCola(c->espera));
+}
+
+void mostrarInscriptos(CursadaPtr c)
+{
+    printf("Incriptos a %s:\n", c->nombre);
+    mostrarListaGenerica(c->inscriptos, &mostrarAlumno);
+}
+
+void ponerEnCola(CursadaPtr c, AlumnoPtr a)
+{
+    encolar(c->espera, a);
+    ordernarCola(c->espera);
+}
+
+void mostrarEspera(CursadaPtr c)
+{
+    printf("En espera a %s:\n", c->nombre);
+    mostrarColaGenerica(c->espera, &mostrarAlumno);
 }
